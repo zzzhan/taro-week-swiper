@@ -1,0 +1,35 @@
+.WeekSwiper {
+  $bg-color: #19be6b;
+  $fg-color: #fff;
+  &-wrap {
+    width: 100%;
+    background-color: $bg-color;
+    color: $fg-color;
+  }
+
+  &-row {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 100%;
+    text-align: center;
+    font-size: 40rpx;
+    margin-bottom: .5em;
+  }
+
+  &-day {
+    font-weight: bolder;
+  }
+
+  &-day-selected {
+    font-weight: bolder;
+    background-color: $fg-color;
+    color: $bg-color;
+    border-radius: 2em;
+  }
+
+  &-swiper {
+    width: 100%;
+    height: 90rpx;
+    font-size: 28rpx;
+  }
+}

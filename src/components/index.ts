@@ -1,0 +1,1 @@
+export {WeekSwiper } from './WeekSwiper'
