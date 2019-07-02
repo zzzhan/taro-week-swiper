@@ -1,7 +1,7 @@
 Taro Week Swiper
 =========
 
-> 基于Taro开发，按星期(每周)切换用于日期选择的小程序组件
+> 基于Taro开发，按星期(每周)切换, 用于日期选择的小程序组件
 
 ## 演示
 
@@ -16,23 +16,11 @@ Taro Week Swiper
 
 ### Install
 
-#### 方式一(只支持typescript开发）
-
 ```
 yarn add taro-week-swiper
 # or
 npm i taro-week-swiper --save
 ```
-
-#### 方式二
-
-```
-yarn add taro-week-swiper --dev
-# or
-npm i taro-week-swiper --save-dev
-```
-
-将上述安装的`node_modules/taro-week-swiper/dist/components/WeekSwiper`拷到小程序的开发目录`src/components`
 
 ### Usage
 
@@ -53,7 +41,7 @@ class Code extends Taro.Component {
     return (
       <View className='index'>
         <WeekSwiper onChange={this.onDayChange.bind(this)}></WeekSwiper>
-        <Text>{selectedDate}</Text>
+        <Text>选择日期:{selectedDate}</Text>
       </View>
     )
   }
