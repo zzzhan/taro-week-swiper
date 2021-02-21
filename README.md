@@ -3,9 +3,9 @@ Taro Week Swiper
 
 > 基于Taro开发，按星期(每周)切换, 用于日期选择的小程序组件
 
-## 演示
+## 示例截图
 
-![Week Swiper](https://ws2.sinaimg.cn/large/ab71ac88gy1g4kjoo7ltfj20hq0tumzg.jpg)
+![示例截图](https://tva1.sinaimg.cn/large/008eGmZEgy1gnf3w4i6zfj30u01t077v.jpg)
 
 ## Feature
 
