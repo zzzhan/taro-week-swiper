@@ -3,7 +3,6 @@ import { View, Swiper, SwiperItem } from "@tarojs/components"
 import moment from "moment"
 import { WeekSwiperProps, WeekSwiperState } from "./interface"
 import "./index.scss"
-
 export class WeekSwiper extends Component<WeekSwiperProps, WeekSwiperState> {
   constructor(props: WeekSwiperProps) {
     super(props);
@@ -30,7 +29,7 @@ export class WeekSwiper extends Component<WeekSwiperProps, WeekSwiperState> {
   dayChange(date) {
     const { onChange } = this.props
     let momentObj = moment(date)
-    const selectedDay = momentObj.day()
+    const selectedDay = momentObj.weekday()
     momentObj.subtract(selectedDay, "days")
     const curStartDate = momentObj.format("YYYY-MM-DD")
     let dates = [momentObj.subtract(7, "days").format("YYYY-MM-DD")]
@@ -49,7 +48,7 @@ export class WeekSwiper extends Component<WeekSwiperProps, WeekSwiperState> {
     const oIndex = e.detail.current
     let ind = oIndex - swiperIdx
     let curDate = moment(curStartDate)
-    const weekDay = moment(selectedDate).day()
+    const weekDay = moment(selectedDate).weekday()
     let updated = false
     //向左滑动
     if (ind === 1 || ind === -2) {
@@ -132,24 +131,15 @@ export class WeekSwiper extends Component<WeekSwiperProps, WeekSwiperState> {
       } else {
         return moment(val).format('DD')
       }
-      return moment(val).format(
-        val === selectedDate
-          ? moment().format("YYYY-MM-DD") === selectedDate
-            ? "今"
-            : "M/D"
-          : "DD"
-      )
     }
     return (
       <View className="WeekSwiper-wrap" style={{backgroundColor: backgroundColor, color: color}}>
         <View className="WeekSwiper-row">
-          <View>日</View>
-          <View>一</View>
-          <View>二</View>
-          <View>三</View>
-          <View>四</View>
-          <View>五</View>
-          <View>六</View>
+          {Array.from(Array(7).keys()).map(i => {
+            const weekText = moment.weekdaysShort(true, i)
+            const ind = weekText.indexOf('周')
+            return <View key={i}>{ind === -1 ? weekText : weekText.substr(1)}</View>
+          })}
         </View>
         <Swiper
           className="WeekSwiper-swiper"
