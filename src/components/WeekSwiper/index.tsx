@@ -1,5 +1,5 @@
-import Taro, { Component } from "@tarojs/taro"
-import { View, Swiper, SwiperItem } from "@tarojs/components"
+import React, { Component } from 'react'
+import { View, Swiper, SwiperItem } from '@tarojs/components'
 import moment from "moment"
 import { WeekSwiperProps, WeekSwiperState } from "./interface"
 import "./index.scss"
@@ -107,25 +107,25 @@ export class WeekSwiper extends Component<WeekSwiperProps, WeekSwiperState> {
   };
 
   render() {
-    const  {backgroundColor, color } = this.props
+    const { backgroundColor, color } = this.props
     const { dates, swiperIdx, selectedDate } = this.state
     const format = val => {
       if (val === selectedDate) {
         const diff = moment().startOf('day').diff(selectedDate, 'days')
         let ret = ''
-        switch(diff) {
+        switch (diff) {
           case 0:
-          ret = '今'
-          break
-          case 1: 
-          ret = '昨'
-          break
+            ret = '今'
+            break
+          case 1:
+            ret = '昨'
+            break
           case -1:
-          ret = '明'
-          break;
+            ret = '明'
+            break;
           default:
-          ret = moment(val).format("M/D")
-          break
+            ret = moment(val).format("M/D")
+            break
         }
         return ret
       } else {
@@ -133,7 +133,7 @@ export class WeekSwiper extends Component<WeekSwiperProps, WeekSwiperState> {
       }
     }
     return (
-      <View className="WeekSwiper-wrap" style={{backgroundColor: backgroundColor, color: color}}>
+      <View className="WeekSwiper-wrap" style={{ backgroundColor: backgroundColor, color: color }}>
         <View className="WeekSwiper-row">
           {Array.from(Array(7).keys()).map(i => {
             const weekText = moment.weekdaysShort(true, i)
@@ -142,21 +142,21 @@ export class WeekSwiper extends Component<WeekSwiperProps, WeekSwiperState> {
           })}
         </View>
         <Swiper
-          className="WeekSwiper-swiper"
-          onChange={this.onSwiperChange}
+          onChange={this.onSwiperChange.bind(this)}
           current={swiperIdx}
           circular
+          style={`height: ${process.env.TARO_ENV=='h5' ? 'auto' : '64rpx'}!important;`}
         >
           <SwiperItem>
-            <View className="WeekSwiper-row WeekSwiper-day">
+            <View className="WeekSwiper-row">
               {dates.slice(0, 7).map(val => (
                 <View
                   key={val}
                   onClick={this.clickDay.bind(this, val)}
                   className={
                     val === selectedDate ? "WeekSwiper-day-selected" : ""
-                  } 
-                  style={val === selectedDate ? {backgroundColor: color, color: backgroundColor} : undefined}
+                  }
+                  style={val === selectedDate ? `background-color:${color};color:${backgroundColor};` : ''}
                 >
                   {format(val)}
                 </View>
@@ -172,7 +172,7 @@ export class WeekSwiper extends Component<WeekSwiperProps, WeekSwiperState> {
                   className={
                     val === selectedDate ? "WeekSwiper-day-selected" : ""
                   }
-                  style={val === selectedDate ? {backgroundColor: color, color: backgroundColor} : undefined}
+                  style={val === selectedDate ? `background-color:${color};color:${backgroundColor};` : ''}
                 >
                   {format(val)}
                 </View>
@@ -188,7 +188,7 @@ export class WeekSwiper extends Component<WeekSwiperProps, WeekSwiperState> {
                   className={
                     val === selectedDate ? "WeekSwiper-day-selected" : ""
                   }
-                  style={val === selectedDate ? {backgroundColor: color, color: backgroundColor} : undefined}
+                  style={val === selectedDate ? `background-color:${color};color:${backgroundColor};` : ''}
                 >
                   {format(val)}
                 </View>

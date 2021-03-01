@@ -1,7 +1,7 @@
 {
   "miniprogramRoot": "dist/",
-  "projectname": "taro-week-swiper",
-  "description": "按星期(每周)切换用于日期选择的小程序组件",
+  "projectname": "taro3-week-swiper",
+  "description": "taro-week-swiper",
   "appid": "touristappid",
   "setting": {
     "urlCheck": true,
@@ -40,7 +40,5 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
   "condition": {}
 }

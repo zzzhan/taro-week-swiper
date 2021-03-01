@@ -1,1 +1,1 @@
-export {WeekSwiper } from './WeekSwiper'
+export { WeekSwiper } from './WeekSwiper'

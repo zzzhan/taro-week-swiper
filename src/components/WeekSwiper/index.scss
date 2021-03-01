@@ -22,14 +22,8 @@
 
   &-day-selected {
     font-weight: bolder;
-    background-color: $fg-color;
-    color: $bg-color;
+    // background-color: $fg-color;
+    // color: $bg-color;
     border-radius: 2em;
-  }
-
-  &-swiper {
-    width: 100%;
-    height: 90rpx;
-    font-size: 28rpx;
   }
 }
