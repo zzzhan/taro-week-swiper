@@ -22,7 +22,7 @@ jobs:
       
     - name: configue taro and build
       run: |
-        yarn global add @tarojs/cli@1.3.46   
+        yarn global add @tarojs/cli@v3.0.22
         yarn install
         yarn build:weapp
         
