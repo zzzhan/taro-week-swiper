@@ -25,6 +25,7 @@ jobs:
         yarn global add @tarojs/cli@v3.0.22
         yarn install
         yarn build:weapp
+        rm -f .npmrc
         
     - name: npm publish
       run: npm publish
