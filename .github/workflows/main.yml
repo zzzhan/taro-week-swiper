@@ -1,0 +1,32 @@
+name: npm-publish
+on:                                 #在main分支上进行push时触发  
+  push:
+    branches:
+    - develop-taro3
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+        
+    steps:                          
+    - name: checkout develop-taro3
+      uses: actions/checkout@v2
+      with:
+        ref: develop-taro3
+            
+    - name: install nodejs
+      uses: actions/setup-node@v2
+      with:
+        node-version: '13.x'
+        registry-url: https://registry.npmjs.org/
+      
+    - name: configue taro and build
+      run: |
+        yarn global add @tarojs/cli@1.3.46   
+        yarn install
+        yarn build:weapp
+        
+    - name: npm publish
+      run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
